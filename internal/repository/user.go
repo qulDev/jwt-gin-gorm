@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/qullDev/jwt-gin-gorm/internal/models"
+	"github.com/qulDev/jwt-gin-gorm/internal/models"
 	"gorm.io/gorm"
 )
 

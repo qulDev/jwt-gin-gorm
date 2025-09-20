@@ -1,4 +1,4 @@
-module github.com/qullDev/jwt-gin-gorm
+module github.com/qulDev/jwt-gin-gorm
 
 go 1.25.1
 
