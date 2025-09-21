@@ -22,16 +22,20 @@ func main() {
 
 	_ = cache // to avoid unused variable error, remove when cache is used
 
-	// Initialize repositories, services, and handlers
+	// Initialize repositories
 	userRepo := repository.NewUserRepository(db)
+
+	// Initialize Service
 	userService := service.NewUserService(userRepo)
-	userHendler := handler.NewUserHandler(userService)
-	articleHendler := handler.NewArticleHandler()
+
+	// Initialize Handlers
+	userHandler := handler.NewUserHandler(userService)
+	articleHandler := handler.NewArticleHandler()
 
 	// Initialize Gin router
 	r := routes.SetupRoutes(&routes.Handlers{
-		User:    userHendler,
-		Article: articleHendler,
+		User:    userHandler,
+		Article: articleHandler,
 	})
 
 	r.Run(":8080")
