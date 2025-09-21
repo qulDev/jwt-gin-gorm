@@ -13,7 +13,7 @@ type Claims struct {
 	jwt.RegisteredClaims
 }
 
-func GenerateAccessToken(id, role string, ttl time.Duration) (string, error) {
+func GenerateAccessToken(id, role string) (string, error) {
 	secret := config.GetJWTSecret()
 
 	claims := Claims{
@@ -22,7 +22,7 @@ func GenerateAccessToken(id, role string, ttl time.Duration) (string, error) {
 		RegisteredClaims: jwt.RegisteredClaims{
 			Subject:   id,
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(ttl)),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(15 * time.Minute)),
 		},
 	}
 
