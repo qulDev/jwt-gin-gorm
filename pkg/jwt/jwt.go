@@ -37,7 +37,7 @@ func GenerateAccessToken(id, role string) (string, error) {
 	return signedToken, nil
 }
 
-func ValidateTokemn(tokenString string) (*Claims, error) {
+func ValidateToken(tokenString string) (*Claims, error) {
 	// take secret key
 	secret := config.GetJWTSecret()
 
